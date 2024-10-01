@@ -16,13 +16,15 @@ const Login = () => {
         setError(''); // Clear any previous errors
 
         try {
-            const { data: { data } } = await axios.post('/api/User/login', {
+            const { data: { data } } = await axios.post('/api/login', {
                 email: username,
-                password: userPassword
+                password: userPassword,
             });
 
+            console.log(data);
+
             localStorage.setItem('user', JSON.stringify(data));
-            router.push('/dashboard/sidebar');
+            router.push('/dashboard');
         } catch (error) {
             console.error(error);
             setError('Invalid username or password.'); // Set error message for invalid login

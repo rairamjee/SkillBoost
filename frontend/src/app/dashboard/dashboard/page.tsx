@@ -103,8 +103,8 @@ const Overview = () => {
       ))}
 
       <div className="flex flex-row">
-        <Card className="mr-12">
-          <CardHeader style={{ width: "700px" }}>
+        <Card className="mr-4">
+          <CardHeader style={{ width: "685px" }}>
             <CardTitle>Employees</CardTitle>
           </CardHeader>
           <CardContent>
@@ -136,7 +136,7 @@ const Overview = () => {
 
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <Card style={{ width: "350px", height: "400px" }}>
+            <Card style={{ width: "329px", height: "400px" }}>
               <CardHeader>
                 <CardTitle>Gender Ratio</CardTitle>
               </CardHeader>
@@ -145,7 +145,7 @@ const Overview = () => {
               </CardContent>
             </Card>
 
-            <Card style={{ width: "350px", height: "400px" }} className="ml-12">
+            <Card style={{ width: "329px", height: "400px" }} className="ml-4">
               <CardHeader>
                 <CardTitle>Designation Distribution</CardTitle>
               </CardHeader>
@@ -155,7 +155,7 @@ const Overview = () => {
             </Card>
           </div>
 
-          <div style={{ width: "750px"}} className="mt-12 bg-white p-12 rounded-sm">
+          <div style={{ width: "670px"}} className="mt-4 bg-white p-12 rounded-sm">
             <Retention />
           </div>
         </div>
