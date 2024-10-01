@@ -1,7 +1,11 @@
 import menulist from "./(menu)/menulist";
+
 import Link from "next/link"
 import {  Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import Overview from "./overview/page";
+
 
 const dashboard =()=>{
 return(
@@ -25,8 +29,11 @@ return(
         </aside>
         <div className="flex-1 flex flex-col overflow-hidden">
         <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center">
+            <h1 className="font-bold text-xl">Welcome Back!</h1>
+          </div>
           <div className="flex items-center">
-            <Input className="w-64 mr-4" placeholder="Search..." />
+            <Input className="w-96 mr-4" placeholder="Search..." />
           </div>
           <div className="flex items-center">
             <Button variant="ghost" size="icon" className="mr-2">
@@ -34,14 +41,17 @@ return(
             </Button>
             <Button variant="ghost" size="icon">
               <img
-                src="/placeholder.svg?height=32&width=32"
+                src="/profile.jpg?height=32&width=32"
                 alt="User"
-                className="w-8 h-8 rounded-full"
+                className="w-8 h-8 rounded-full object-cover"
               />
             </Button>
           </div>
         </header>
 
+        <main className="flex-1 overflow-y-auto p-4">
+            <Overview/>
+        </main>
         </div>
     </div>
     
