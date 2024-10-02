@@ -7,13 +7,13 @@ const withAuth = (WrappedComponent) => {
         const [loading, setLoading] = useState(true);
 
         useEffect(() => {
-            const user = JSON.parse(localStorage.getItem('user')); // Adjust this key if necessary
-
+            const user = JSON.parse(localStorage.getItem('user')); 
+            // const token=user.token
             console.log(user)
-            if (!user.token) {
-                router.push('/login'); // Redirect to login if no token is found
+            if (!user) {
+                router.push('/login'); 
             } else {
-                setLoading(false); // Set loading to false if token exists
+                setLoading(false); 
             }
         }, [router]);
 
