@@ -1,10 +1,12 @@
-"use client"
+"use client";
+import React, { useState } from "react";
 import menulist from "./(menu)/menulist";
 import Link from "next/link";
-import { Bell, LogOut } from 'lucide-react';
+import { Bell, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Overview from "./dashboard/page";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,16 +15,23 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import withAuth from "../../../utils/withAuth"
+import withAuth from "../../../utils/withAuth";
 
 const Dashboard = () => {
-  const user = JSON.parse(localStorage.getItem('user') || '{}'); 
-  console.log(user);
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const role = user.role;
+
+  // State to hold the currently selected component
+  const [currentComponent, setCurrentComponent] = useState<JSX.Element | null>(null);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     console.log("Logging out...");
-    window.location.href = '/login'; // Replace with your login route
+    window.location.href = "/login"; // Replace with your login route
+  };
+
+  const handleMenuClick = (component: JSX.Element) => {
+    setCurrentComponent(component);
   };
 
   return (
@@ -32,16 +41,18 @@ const Dashboard = () => {
           <h2 className="text-2xl font-semibold text-slate-800 dark:text-white">SkillBoost!</h2>
         </div>
         <nav className="mt-4">
-          {menulist.map((item) => (
-            <Link
-              key={item.name}
-              href="#"
-              className="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-slate-800 dark:hover:bg-gray-700 hover:text-white"
-            >
-              <item.icon className="w-5 h-5 mr-3" />
-              {item.name}
-            </Link>
-          ))}
+          {menulist
+            .filter(item => item.listFor === role) // Filter menu items by role
+            .map(item => (
+              <button
+                key={item.name}
+                onClick={() => handleMenuClick(item.component)}
+                className="flex items-center w-full text-left px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-slate-800 dark:hover:bg-gray-700 hover:text-white"
+              >
+                <item.icon className="w-5 h-5 mr-3" />
+                {item.name}
+              </button>
+            ))}
         </nav>
       </aside>
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -80,7 +91,7 @@ const Dashboard = () => {
         </header>
 
         <main className="flex-1 overflow-y-auto p-4">
-          <Overview />
+          {currentComponent || <Overview />} {/* Default component */}
         </main>
       </div>
     </div>
