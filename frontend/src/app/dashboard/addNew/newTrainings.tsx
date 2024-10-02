@@ -1,38 +1,57 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import axios from 'axios';
 
 const domains = [
-  { value: 'DataScience', label: 'DataScience' },
+  { value: 'DataScience', label: 'Data Science' },
   { value: 'DevOps', label: 'DevOps' },
-  { value: 'FullStack', label: 'FullStack' },
-  { value: 'DataEngineering', label: 'DataEngineering' },
-  { value: 'SoftSkills', label: 'SoftSkills' },
+  { value: 'FullStack', label: 'Full Stack' },
+  { value: 'DataEngineering', label: 'Data Engineering' },
+  { value: 'SoftSkills', label: 'Soft Skills' },
 ];
 
 const NewTrainings: React.FC = () => {
   const [trainingName, setTrainingName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [domainName, setDomainName] = useState<string>('');
-  const [duration, setDuration] = useState<string>('');
+  const [duration, setDuration] = useState<number | ''>(''); // Allow empty string for initial state
+  const [error, setError] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({
+    setError('');
+
+    // Validate duration is a number
+    if (typeof duration !== 'number' || duration <= 0) {
+      setError('Please enter a valid duration.');
+      return;
+    }
+
+    const trainingData = {
       trainingName,
       description,
       domainName,
       duration,
-    });
-    // Reset the form
-    setTrainingName('');
-    setDescription('');
-    setDomainName('');
-    setDuration('');
+    };
+
+    try {
+      const response = await axios.post('/api/addTrainings', trainingData);
+      console.log(response.data); 
+     
+      setTrainingName('');
+      setDescription('');
+      setDomainName('');
+      setDuration(''); 
+    } catch (err) {
+      setError('Failed to create training. Please try again.');
+      console.error(err); 
+    }
   };
 
   return (
     <div className="max-w-md mx-auto p-4">
       <h2 className="text-2xl font-bold mb-8">Create New Training</h2>
+      {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="trainingName" className="block mb-1">Training Name</label>
@@ -76,19 +95,19 @@ const NewTrainings: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="duration" className="block mb-1">Duration</label>
+          <label htmlFor="duration" className="block mb-1">Duration (in hours)</label>
           <input
             id="duration"
-            type="text"
+            type="number"
             value={duration}
-            onChange={(e) => setDuration(e.target.value)}
+            onChange={(e) => setDuration(Number(e.target.value))}
             required
-            placeholder="e.g., 4 weeks"
+            placeholder="e.g., 4"
             className="border border-gray-300 p-2 w-full"
           />
         </div>
 
-        <Button >Submit</Button>
+        <Button>Submit</Button>
       </form>
     </div>
   );

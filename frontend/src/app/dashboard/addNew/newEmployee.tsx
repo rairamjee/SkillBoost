@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import { Button } from '@/components/ui/button';
+import axios from 'axios';
 
 const roles = [
   { value: 'Employee', label: 'Employee' },
@@ -9,7 +10,7 @@ const roles = [
 ];
 
 const designations = Array.from({ length: 9 }, (_, i) => ({
-  value: `Designation${i + 1}`,
+  value: `Designation ${i + 1}`,
   label: `Designation ${i + 1}`,
 }));
 
@@ -40,6 +41,9 @@ const AddEmployee: React.FC = () => {
       designation,
       gender,
     };
+
+    const response= await axios.post('/api/addEmployee',employeeData);
+    console.log(response.data);
 
     // Here you can send `employeeData` to your API endpoint
     console.log(employeeData);

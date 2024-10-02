@@ -8,9 +8,15 @@ import { Button } from "@/components/ui/button";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import Retention from "./retention";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
+const LIMIT = 10;
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
-
+interface PaginationProps {
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+  fetch: (currentPage: number, limit: number) => void
+}
 const Overview = () => {
   interface User {
     name: string; // User's name
@@ -23,12 +29,23 @@ const Overview = () => {
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [totalPage, setTotalPage] = useState<number>(0);
+
+
+  const fetchUserData = async (currentPage: number, limit: number) => {
+    const response = await axios.get(`/api/user?page=${currentPage}&limit=${LIMIT}`);
+    setCurrentPage(response.data.currentPage);
+    setTotalPage(response.data.totalPage);
+    setAllUsers(response.data.users);
+
+
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/user");
-        setAllUsers(response.data); // Updating the Users list
+        await fetchUserData(currentPage, LIMIT)// Updating the Users list
       } catch (err) {
         setError("Failed to fetch users.");
       } finally {
@@ -132,6 +149,7 @@ const Overview = () => {
               ))}
             </div>
           </CardContent>
+          <Pagination currentPage={currentPage} totalPages={totalPage} onPageChange={setCurrentPage} fetch={fetchUserData} />
         </Card>
 
         <div className="flex flex-col">
@@ -155,7 +173,7 @@ const Overview = () => {
             </Card>
           </div>
 
-          <div style={{ width: "670px"}} className="mt-4 bg-white p-12 rounded-sm">
+          <div style={{ width: "670px" }} className="mt-4 bg-white p-12 rounded-sm">
             <Retention />
           </div>
         </div>
@@ -165,3 +183,41 @@ const Overview = () => {
 };
 
 export default Overview;
+
+
+
+function Pagination({ currentPage, totalPages, onPageChange, fetch }: PaginationProps) {
+  return (
+    <div className="flex items-center justify-center space-x-2 mt-4">
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        aria-label="Previous page"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </Button>
+      {[...Array(totalPages)].map((_, index) => (
+        <Button
+          key={index}
+          variant={currentPage === index + 1 ? "default" : "outline"}
+          onClick={async () => await fetch(index+1, LIMIT) }
+          aria-label={`Page ${index + 1}`}
+          aria-current={currentPage === index + 1 ? "page" : undefined}
+        >
+          {index + 1}
+        </Button>
+      ))}
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        aria-label="Next page"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </div>
+  )
+}
