@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+
+import {EmployeeDetails, columns } from "./columns"
+import { DataTable } from "./data-table"
+// import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 function EmployeeAnalytics() {
 
     const [employees, setEmployees] = useState([])
@@ -26,7 +29,7 @@ function EmployeeAnalytics() {
         <div className="ml-4 mt-8">
             <h1 className="font-bold text-2xl">Employee List</h1>
             <div style={{width:'1000px'}} className="mt-8">
-                <Table >
+                {/* <Table >
                     <TableHeader>
                         <TableRow>
                             <TableHead className="font-bold">Employee Id</TableHead>
@@ -50,7 +53,9 @@ function EmployeeAnalytics() {
 
                         </TableRow>
                     </TableBody>
-                </Table>
+                </Table> */}
+                <DataTable columns={columns} data={employees} />
+
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import Retention from "./retention";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-// import Report from "../report/page";
+import Report from "../report/page";
 
 const LIMIT = 10;
 
@@ -199,7 +199,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      {/* {showReport && <Report/>} */}
+      {showReport && <Report/>}
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { DataTableTraining } from "./data-table-tarining"
+import { columns_training } from "./columns-training"
 function TraingAnalytics() {
 
     const [training, setTraining] = useState([])
@@ -21,17 +23,17 @@ function TraingAnalytics() {
         fetchData()
     }, [])
 
-    const formatDate = (dateString:any) => {
-      const options:any = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+//     const formatDate = (dateString:any) => {
+//       const options:any = { year: 'numeric', month: 'long', day: 'numeric' };
+//       return new Date(dateString).toLocaleDateString(undefined, options);
+//   };
 
     if (loading) return <div>Loading...</div>;
     return (
         <div className="ml-4 mt-8">
             <h1 className="font-bold text-2xl">Training List</h1>
             <div style={{width:'1000px'}} className="mt-8">
-                <Table >
+                {/* <Table >
                     <TableHeader>
                         <TableRow>
                             <TableHead className="font-bold">Training Id</TableHead>
@@ -57,7 +59,8 @@ function TraingAnalytics() {
 
                         </TableRow>
                     </TableBody>
-                </Table>
+                </Table> */}
+                <DataTableTraining columns={columns_training} data={training} />
             </div>
         </div>
     )
