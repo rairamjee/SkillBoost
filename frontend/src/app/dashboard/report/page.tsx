@@ -1,27 +1,39 @@
-// "use client"
-// import axios from 'axios';
-// import React, { useEffect } from 'react'
+"use client"
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
-// function Report() {
+// import { TrendingUp } from "lucide-react"
+// import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
-//     const id:number=5;
-//     useEffect(()=>{
-//         const fetchEmployeeDetails= async ()=>{
-//             try {
-//                 const employeeReport= await axios.post(`/api/employeeDetails/${id}`);
-//                 console.log(employeeReport);
-//             } catch (error) {
-//                 console.log("Error :",error);
-//             }
-//         }
+function Report() {
+    interface Report{
+        "responseId":number,
+        "userId":number,
+        "trainingId":number,
+        "score":number,
+        "responseDate":Date
+    }
+    const [employeeReportDetails,setEmployeeReportDetails]=useState<Report | null>(null)
 
-//         fetchEmployeeDetails();
-//     },[id])
-//   return (
-//     <div>
-//         <h1 className='font-bold text-2xl'>Report</h1>
-//     </div>
-//   )
-// }
+    const id:number=5;
+    useEffect(()=>{
+        const fetchEmployeeDetails= async ()=>{
+            try {
+                const employeeReport= await axios.get(`/api/employeeDetails/${id}`);
+                setEmployeeReportDetails(employeeReport.data.date);
+                console.log(employeeReport.data.data);
+            } catch (error) {
+                console.log("Error :",error);
+            }
+        }
 
-// export default Report
+        fetchEmployeeDetails();
+    },[id])
+  return (
+    <div>
+        <h1 className='font-bold text-2xl'>Report</h1>
+    </div>
+  )
+}
+
+export default Report
