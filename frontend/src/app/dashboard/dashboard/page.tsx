@@ -9,14 +9,18 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import Retention from "./retention";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+// import Report from "../report/page";
+
 const LIMIT = 10;
+
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 interface PaginationProps {
-  currentPage: number
-  totalPages: number
-  onPageChange: (page: number) => void
-  fetch: (currentPage: number, limit: number) => void
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+  fetch: (currentPage: number, limit: number) => void;
 }
+
 const Overview = () => {
   interface User {
     name: string; // User's name
@@ -31,21 +35,25 @@ const Overview = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(0);
-
+  const [showReport, setShowReport] = useState<boolean>(false);
 
   const fetchUserData = async (currentPage: number, limit: number) => {
-    const response = await axios.get(`/api/user?page=${currentPage}&limit=${LIMIT}`);
+    const response = await axios.get(
+      `/api/user?page=${currentPage}&limit=${LIMIT}`
+    );
     setCurrentPage(response.data.currentPage);
     setTotalPage(response.data.totalPage);
     setAllUsers(response.data.users);
+  };
 
-
-  }
+  const handleClickReport = () => {
+    setShowReport(true);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetchUserData(currentPage, LIMIT)// Updating the Users list
+        await fetchUserData(currentPage, LIMIT); // Updating the Users list
       } catch (err) {
         setError("Failed to fetch users.");
       } finally {
@@ -59,7 +67,6 @@ const Overview = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
-  // Prepare data for pie chart (gender)
   const genderCounts = allUsers.reduce((acc, user) => {
     acc[user.gender] = (acc[user.gender] || 0) + 1;
     return acc;
@@ -76,7 +83,6 @@ const Overview = () => {
     ],
   };
 
-  // Prepare data for pie chart (designations)
   const designationCounts = allUsers.reduce((acc, user) => {
     acc[user.designation] = (acc[user.designation] || 0) + 1;
     return acc;
@@ -104,89 +110,108 @@ const Overview = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      {cardlist.map((item, index) => (
-        <Card key={index} className="h-36">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-base font-medium">
-              {item.title}
-            </CardTitle>
-            <item.icon className={`w-4 h-4 ${item.color}`} />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold mt-8">+ {item.value}</div>
-          </CardContent>
-        </Card>
-      ))}
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {cardlist.map((item, index) => (
+          <Card key={index} className="h-36">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-base font-medium">
+                {item.title}
+              </CardTitle>
+              <item.icon className={`w-4 h-4 ${item.color}`} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold mt-8">+ {item.value}</div>
+            </CardContent>
+          </Card>
+        ))}
 
-      <div className="flex flex-row">
-        <Card className="mr-4">
-          <CardHeader style={{ width: "685px" }}>
-            <CardTitle>Employees</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-8">
-              {allUsers.map((user, index) => (
-                <div key={index} className="flex items-center">
-                  <img
-                    src={`/profile.jpg?height=32&width=32`}
-                    alt={user.name}
-                    className="w-9 h-9 rounded-full mr-2"
-                  />
-                  <div className="flex flex-col">
-                    <div className="font-medium">{user.name}</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
-                      {user.email}
+        <div className="flex flex-row">
+          <Card className="mr-4">
+            <CardHeader style={{ width: "685px" }}>
+              <CardTitle>Employees</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-8">
+                {allUsers.map((user, index) => (
+                  <div key={index} className="flex items-center">
+                    <img
+                      src={`/profile.jpg?height=32&width=32`}
+                      alt={user.name}
+                      className="w-9 h-9 rounded-full mr-2"
+                    />
+                    <div className="flex flex-col">
+                      <div className="font-medium">{user.name}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
+                        {user.email}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {user.designation}
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-500">
-                      {user.designation}
+                    <div className="ml-72">
+                      <Button className="w-32" onClick={handleClickReport}>
+                        View Report
+                      </Button>
                     </div>
                   </div>
-                  <div className="ml-72">
-                    <Button className="w-32">View Report</Button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </CardContent>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPage}
+              onPageChange={setCurrentPage}
+              fetch={fetchUserData}
+            />
+          </Card>
+
+          <div className="flex flex-col">
+            <div className="flex flex-row">
+              <Card style={{ width: "329px", height: "400px" }}>
+                <CardHeader>
+                  <CardTitle>Gender Ratio</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Pie data={pieDataGender} />
+                </CardContent>
+              </Card>
+
+              <Card
+                style={{ width: "329px", height: "400px" }}
+                className="ml-4"
+              >
+                <CardHeader>
+                  <CardTitle>Designation Distribution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Pie data={pieDataDesignation} />
+                </CardContent>
+              </Card>
             </div>
-          </CardContent>
-          <Pagination currentPage={currentPage} totalPages={totalPage} onPageChange={setCurrentPage} fetch={fetchUserData} />
-        </Card>
 
-        <div className="flex flex-col">
-          <div className="flex flex-row">
-            <Card style={{ width: "329px", height: "400px" }}>
-              <CardHeader>
-                <CardTitle>Gender Ratio</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Pie data={pieDataGender} />
-              </CardContent>
-            </Card>
-
-            <Card style={{ width: "329px", height: "400px" }} className="ml-4">
-              <CardHeader>
-                <CardTitle>Designation Distribution</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Pie data={pieDataDesignation} />
-              </CardContent>
-            </Card>
-          </div>
-
-          <div style={{ width: "670px" }} className="mt-4 bg-white p-12 rounded-sm">
-            <Retention />
+            <div
+              style={{ width: "670px" }}
+              className="mt-4 bg-white p-12 rounded-sm"
+            >
+              <Retention />
+            </div>
           </div>
         </div>
       </div>
+      {/* {showReport && <Report/>} */}
     </div>
   );
 };
 
 export default Overview;
 
-
-
-function Pagination({ currentPage, totalPages, onPageChange, fetch }: PaginationProps) {
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+  fetch,
+}: PaginationProps) {
   return (
     <div className="flex items-center justify-center space-x-2 mt-4">
       <Button
@@ -202,7 +227,7 @@ function Pagination({ currentPage, totalPages, onPageChange, fetch }: Pagination
         <Button
           key={index}
           variant={currentPage === index + 1 ? "default" : "outline"}
-          onClick={async () => await fetch(index+1, LIMIT) }
+          onClick={async () => await fetch(index + 1, LIMIT)}
           aria-label={`Page ${index + 1}`}
           aria-current={currentPage === index + 1 ? "page" : undefined}
         >
@@ -219,5 +244,5 @@ function Pagination({ currentPage, totalPages, onPageChange, fetch }: Pagination
         <ChevronRight className="h-4 w-4" />
       </Button>
     </div>
-  )
+  );
 }
