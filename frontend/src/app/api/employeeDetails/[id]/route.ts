@@ -4,54 +4,77 @@ export async function GET(
   req: Request,
   { params }: { params: { id: string } }
 ) {
+    const userId = parseInt(params.id);
+
+    console.log(userId);
 
     try {
-        const results=await prisma.response.findMany({
-            where:{
-                userId:parseInt(params.id)
+        // Fetch both user details and responses in one query
+        const results = await prisma.response.findMany({
+            where: {
+                userId: userId
             }
-        })
+        });
 
-        if(results){
-        return new Response(
-          JSON.stringify({
-            message: "Success",
-            data:results
-          }),{
-            status:200,
-            headers: {
-                "Content-Type": "application/json"
+        const userDetails = await prisma.user.findUnique({
+            where: {
+                userId: userId
+            },
+            select: { // Use select to specify which fields to return
+                userId: true,
+                userName: true,
+                email: true,
+                role: true,
+                designation: true,
+                gender: true
             }
-          }
-        );
-    }
-    else{
+        });
+
+        // Check if user details exist
+        if (!userDetails) {
+            return new Response(
+                JSON.stringify({
+                    message: "User Not Found",
+                    data: null
+                }),
+                {
+                    status: 404,
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            );
+        }
+
         return new Response(
             JSON.stringify({
-                message:"No Results Found",
-                data:null
-            }),{
-                status:404,
-                headers:{
-                    "Content-Type":"application/json"
+                message: "Success",
+                data: {
+                    user: userDetails,
+                    responses: results
+                }
+            }),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json"
                 }
             }
-        )
-    }
-
+        );
 
     } catch (error) {
-        console.log("Error :",error);
+        console.error("Error:", error);
         return new Response(
             JSON.stringify({
-              message: "Success",
-              data:null
-            }),{
-                status:500,
-                headers:{
-                    "Content-Type":"application/json"
+                message: "Internal Server Error",
+                data: null
+            }),
+            {
+                status: 500,
+                headers: {
+                    "Content-Type": "application/json"
                 }
             }
-          );
+        );
     }
 }
