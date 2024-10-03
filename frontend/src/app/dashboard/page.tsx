@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import menulist from "./(menu)/menulist";
 import { Bell, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import withAuth from "../../../utils/withAuth";
+import UserDashboard from "./userDashboard/page";
 
 const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -34,6 +35,14 @@ const Dashboard = () => {
     setCurrentComponent(component);
   };
 
+  useEffect(() => {
+    console.log(role);
+    if (role === "Employee") {
+      setCurrentComponent(<UserDashboard />);
+    } else {
+      setCurrentComponent(<Overview />);
+    }
+  }, [role]);
   return (
     <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
       <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
@@ -91,7 +100,7 @@ const Dashboard = () => {
         </header>
 
         <main className="flex-1 overflow-y-auto p-4">
-          {currentComponent || <Overview />} {/* Default component */}
+          {currentComponent} {/* Default component */}
         </main>
       </div>
     </div>
