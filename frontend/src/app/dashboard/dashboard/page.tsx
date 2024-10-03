@@ -23,6 +23,7 @@ interface PaginationProps {
 
 const Overview = () => {
   interface User {
+    userId:number,
     name: string; // User's name
     email: string; // User's email
     role: string; // User's role
@@ -36,6 +37,7 @@ const Overview = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(0);
   const [showReport, setShowReport] = useState<boolean>(false);
+  const [selectedEmployeeId, setSelectedEmployeeId] =useState<number>(0);
 
   const fetchUserData = async (currentPage: number, limit: number) => {
     const response = await axios.get(
@@ -46,9 +48,10 @@ const Overview = () => {
     setAllUsers(response.data.users);
   };
 
-  const handleClickReport = () => {
+  const handleClickReport = (userId: number) => {
+    setSelectedEmployeeId(userId);
     setShowReport(true);
-  };
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -150,7 +153,7 @@ const Overview = () => {
                       </div>
                     </div>
                     <div className="ml-72">
-                      <Button className="w-32" onClick={handleClickReport}>
+                      <Button className="w-32" onClick={()=>handleClickReport(user.userId)}>
                         View Report
                       </Button>
                     </div>
@@ -199,7 +202,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      {showReport && <Report/>}
+      {showReport && <Report empId={selectedEmployeeId} />}
     </div>
   );
 };
