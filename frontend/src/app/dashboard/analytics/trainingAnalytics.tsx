@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { DataTableTraining } from "./data-table-tarining"
-import { columns_training } from "./columns-training"
+import { DataTableTraining } from "./(trainingAnalytics)/data-table-tarining"
+import { columns_training } from "./(trainingAnalytics)/columns-training"
 function TraingAnalytics() {
 
     const [training, setTraining] = useState([])

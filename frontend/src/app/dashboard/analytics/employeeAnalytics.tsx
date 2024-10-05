@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-import {EmployeeDetails, columns } from "./columns"
-import { DataTable } from "./data-table"
+import {EmployeeDetails, columns } from "./(employeeAnalytics)/columns"
+import { DataTable } from "./(employeeAnalytics)/data-table"
 // import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 function EmployeeAnalytics() {
 
