@@ -41,6 +41,7 @@ export async function POST(req: Request) {
         message: "Successfully Signed In",
         data: {
             token: token,
+            userId :existingUser.userId,
             name: existingUser.userName,
             role: existingUser.role,
             email: existingUser.email,

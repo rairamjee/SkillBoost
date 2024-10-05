@@ -62,7 +62,7 @@ function Report(empId: any) {
         const response = await axios.get(`/api/employeeDetails/${employeeId}`);
         setEmployeeReportDetails(response.data.data.responses || []);
         setEmployeeDetail(response.data.data.user || []);
-        console.log(response.data.data.user);
+        // console.log(response.data.data.user);
       } catch (error) {
         console.log("Error:", error);
       } finally {

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import cardlist from '../(menu)/cardlist'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { TrendingUp } from 'lucide-react';
-
+import UserReport from './userReport';
 
 function UserDashboard() {
     return (
@@ -23,10 +23,10 @@ function UserDashboard() {
                 ))}
             </div>
             <div className='flex gap-3'>
-                <h1>Recent Activities</h1>
-                <TrendingUp />
+                <h1 className='text-2xl'> Recent Activities</h1>
+                <TrendingUp className='mt-1'/>
             </div>
-        
+            <UserReport/>
         </div>
 
     )
