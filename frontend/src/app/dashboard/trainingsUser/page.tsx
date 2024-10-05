@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import TrainingAttended from "./(trainingAttended)/trainingAttended";
-import UpcomingTrainings from "./(upcomingTrainings)/upcomingTrainings";
+import UpComingTrainings from "./(upComingTrainings)/upcomingTrainings";
 
 function Trainings() {
   return (
@@ -11,11 +11,8 @@ function Trainings() {
         <TabsTrigger value="trainingAttended">Trainings Attended</TabsTrigger>
       </TabsList>
       <TabsContent value="upcomingTraining">
-        <h1 className="text-lg font-bold ml-4 mt-8">
-          List of all the Upcoming Trainings
-        </h1>
         <div className="ml-4">
-          <UpcomingTrainings />
+          <UpComingTrainings/>
         </div>
       </TabsContent>
       <TabsContent value="trainingAttended">

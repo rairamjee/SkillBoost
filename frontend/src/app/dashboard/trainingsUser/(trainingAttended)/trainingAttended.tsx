@@ -43,12 +43,14 @@ function TrainingAttended() {
   if (loading) {
     return <div>Loading ...</div>;
   }
-  return (<div className="mt-4 w-[1200px]">
-     <h1 className="text-lg font-bold mt-8">
-          List of all the Trainings Attended
-        </h1>
-  <DataTable columns={columns} data={trainingParticipatedDetails} />
-</div>);
+  return (
+    <div className="mt-4 w-[1200px]">
+      <h1 className="text-lg font-bold mt-8">
+        List of all the Trainings Attended
+      </h1>
+      <DataTable columns={columns} data={trainingParticipatedDetails} />
+    </div>
+  );
 }
 
 export default TrainingAttended;
