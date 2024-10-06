@@ -31,8 +31,33 @@ const AddEmployee: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!userName || !email || !password || !role || !designation || !gender) {
-      toast.error("All fields are mandatory!");
+    if (!userName) {
+      toast.error("Username Required!");
+      return;
+    } else if (!email) {
+      toast.error("Email Required!");
+      return;
+    } else if (!password) {
+      toast.error("Password Missing!");
+      return;
+    } else if (!role) {
+      toast.error("Select Role!");
+      return;
+    } else if (!designation) {
+      toast.error("Select Designation!");
+      return;
+    } else if (!gender) {
+      toast.error("Select Gender!");
+      return;
+    }
+
+    if (password.length <= 6) {
+      toast.error("Password must be atleast 6 characters");
+      return;
+    }
+
+    if (password.length >= 6) {
+      toast.error("Password cannot be greater than 10 characters");
       return;
     }
 
@@ -48,7 +73,7 @@ const AddEmployee: React.FC = () => {
     };
 
     try {
-      const response = await axios.post("/api/addEmploye", employeeData);
+      const response = await axios.post("/api/addEmployee", employeeData);
       console.log(response.data);
 
       setUserName("");
@@ -71,7 +96,7 @@ const AddEmployee: React.FC = () => {
     <div className="max-w-md mx-auto p-4">
       <ToastContainer />
       <h2 className="text-2xl font-bold mb-4">Add Employee</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div>
           <label htmlFor="userName" className="block mb-1">
             Username

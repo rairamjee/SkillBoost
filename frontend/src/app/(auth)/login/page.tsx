@@ -14,9 +14,12 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!username || !userPassword) {
-      toast.error("Please fill in all fields.");
-      return;
+    if(!username){
+        toast.error("Username is required!");
+        return ;
+    }else if(!userPassword){
+        toast.error("Password is required!");
+        return ;
     }
 
     try {
@@ -46,10 +49,10 @@ const Login = () => {
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-slate-900">
       <ToastContainer />
-      <div className="left-side ml-4 w-full lg:w-1/2 md:w-2/3 h-screen p-8 flex flex-col justify-center text-slate-50">
+      <div className="left-side ml-16 w-full lg:w-1/2 md:w-2/3 h-screen p-8 flex flex-col justify-center text-slate-50">
         <h2 className="text-4xl font-bold mb-4">SkillBoost!</h2>
         <h3 className="mb-24 text-lg">Welcome Back...</h3>
-        <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+        <form className="w-full max-w-sm" onSubmit={handleSubmit} noValidate>
           <div className="mb-6">
             <label
               className="block text-slate-300 text-sm font-bold mb-2"

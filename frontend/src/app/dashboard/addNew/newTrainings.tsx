@@ -17,18 +17,24 @@ const NewTrainings: React.FC = () => {
   const [description, setDescription] = useState<string>("");
   const [domainName, setDomainName] = useState<string>("");
   const [duration, setDuration] = useState<number | "">(""); 
-  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
 
-    if (!trainingName || !description || !domainName || !duration) {
-      toast.error("All fields are Mandatory");
-      return;
+    if(!trainingName){
+      toast.error("Training Name is required!");
+      return ;
+    }else if(!description){
+      toast.error("Description is Required!");
+      return ;
+    }else if(!domainName){
+      toast.error("Select Domain!");
+      return ;
+    }else if(!duration){
+      toast.error("Duration is Required")
     }
+  
     if (typeof duration !== "number" || duration <= 0) {
-      setError("Please enter a valid duration.");
       toast.error("Please enter a valid duration.");
       return;
     }
@@ -50,7 +56,6 @@ const NewTrainings: React.FC = () => {
       setDuration("");
       toast.success("Training Created , Successfully!");
     } catch (err) {
-      setError("Failed to create training. Please try again.");
       toast.error("Failed to create training. Please try again.");
       console.error(err);
     }
@@ -60,8 +65,7 @@ const NewTrainings: React.FC = () => {
     <div className="max-w-md mx-auto p-4">
       <ToastContainer />
       <h2 className="text-2xl font-bold mb-8">Create New Training</h2>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div>
           <label htmlFor="trainingName" className="block mb-1">
             Training Name
