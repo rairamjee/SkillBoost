@@ -1,12 +1,13 @@
-// components/AddEmployee.tsx
-import React, { useState } from 'react';
-import bcrypt from 'bcryptjs';
-import { Button } from '@/components/ui/button';
-import axios from 'axios';
+import React, { useState } from "react";
+import bcrypt from "bcryptjs";
+import { Button } from "@/components/ui/button";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roles = [
-  { value: 'Employee', label: 'Employee' },
-  { value: 'Admin', label: 'Admin' },
+  { value: "Employee", label: "Employee" },
+  { value: "Admin", label: "Admin" },
 ];
 
 const designations = Array.from({ length: 9 }, (_, i) => ({
@@ -15,22 +16,26 @@ const designations = Array.from({ length: 9 }, (_, i) => ({
 }));
 
 const genders = [
-  { value: 'Male', label: 'Male' },
-  { value: 'Female', label: 'Female' },
+  { value: "Male", label: "Male" },
+  { value: "Female", label: "Female" },
 ];
 
 const AddEmployee: React.FC = () => {
-  const [userName, setUserName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [role, setRole] = useState<string>('');
-  const [designation, setDesignation] = useState<string>('');
-  const [gender, setGender] = useState<string>('');
+  const [userName, setUserName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [role, setRole] = useState<string>("");
+  const [designation, setDesignation] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Hash the password
+    if (!userName || !email || !password || !role || !designation || !gender) {
+      toast.error("All fields are mandatory!");
+      return;
+    }
+
     const hashedPassword = bcrypt.hashSync(password, 10);
 
     const employeeData = {
@@ -42,27 +47,35 @@ const AddEmployee: React.FC = () => {
       gender,
     };
 
-    const response= await axios.post('/api/addEmployee',employeeData);
-    console.log(response.data);
+    try {
+      const response = await axios.post("/api/addEmploye", employeeData);
+      console.log(response.data);
 
-    // Here you can send `employeeData` to your API endpoint
-    console.log(employeeData);
+      setUserName("");
+      setEmail("");
+      setPassword("");
+      setRole("");
+      setDesignation("");
+      setGender("");
 
-    // Reset the form
-    setUserName('');
-    setEmail('');
-    setPassword('');
-    setRole('');
-    setDesignation('');
-    setGender('');
+      toast.success("Employee Created Successfully!");
+    } catch (error: any) {
+      const errorMessage =
+        error.response?.data?.message || "Sorry, could not create the User!";
+      toast.error(errorMessage);
+      console.error("Error creating employee:", error);
+    }
   };
 
   return (
     <div className="max-w-md mx-auto p-4">
+      <ToastContainer />
       <h2 className="text-2xl font-bold mb-4">Add Employee</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="userName" className="block mb-1">Username</label>
+          <label htmlFor="userName" className="block mb-1">
+            Username
+          </label>
           <input
             id="userName"
             type="text"
@@ -74,7 +87,9 @@ const AddEmployee: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="block mb-1">Email</label>
+          <label htmlFor="email" className="block mb-1">
+            Email
+          </label>
           <input
             id="email"
             type="email"
@@ -86,7 +101,9 @@ const AddEmployee: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="password" className="block mb-1">Password</label>
+          <label htmlFor="password" className="block mb-1">
+            Password
+          </label>
           <input
             id="password"
             type="password"
@@ -98,7 +115,9 @@ const AddEmployee: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="role" className="block mb-1">Role</label>
+          <label htmlFor="role" className="block mb-1">
+            Role
+          </label>
           <select
             id="role"
             value={role}
@@ -107,7 +126,7 @@ const AddEmployee: React.FC = () => {
             className="border border-gray-300 p-2 w-full"
           >
             <option value="">Select Role</option>
-            {roles.map(r => (
+            {roles.map((r) => (
               <option key={r.value} value={r.value}>
                 {r.label}
               </option>
@@ -116,7 +135,9 @@ const AddEmployee: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="designation" className="block mb-1">Designation</label>
+          <label htmlFor="designation" className="block mb-1">
+            Designation
+          </label>
           <select
             id="designation"
             value={designation}
@@ -125,7 +146,7 @@ const AddEmployee: React.FC = () => {
             className="border border-gray-300 p-2 w-full"
           >
             <option value="">Select Designation</option>
-            {designations.map(d => (
+            {designations.map((d) => (
               <option key={d.value} value={d.value}>
                 {d.label}
               </option>
@@ -135,7 +156,7 @@ const AddEmployee: React.FC = () => {
 
         <div>
           <label className="block mb-1">Gender</label>
-          {genders.map(g => (
+          {genders.map((g) => (
             <label key={g.value} className="inline-flex items-center mr-4">
               <input
                 type="radio"
@@ -150,7 +171,7 @@ const AddEmployee: React.FC = () => {
           ))}
         </div>
 
-        <Button>Add Employee</Button>
+        <Button type="submit">Add Employee</Button>
       </form>
     </div>
   );

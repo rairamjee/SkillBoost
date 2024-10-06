@@ -3,15 +3,15 @@
 import { ColumnDef } from "@tanstack/react-table";
 
 export type TrainingDetails = {
-  trainingId: number; // Use 'number' instead of 'Number' for primitive types
-  trainingName: string; // Use 'string' instead of 'String' for primitive types
+  trainingId: number; 
+  trainingName: string; 
   description: string;
   designation: string;
   domainName: string;
   duration: number;
-  startDate: Date; // Ensure 'startDate' is a Date object
+  startDate: Date; 
 };
-const options:any = { year: 'numeric', month: 'long', day: 'numeric' };
+const options: any = { year: "numeric", month: "long", day: "numeric" };
 
 export const columns_training: ColumnDef<TrainingDetails>[] = [
   {
@@ -38,8 +38,10 @@ export const columns_training: ColumnDef<TrainingDetails>[] = [
     accessorKey: "startDate",
     header: "Start Date",
     cell: ({ getValue }) => {
-      const date = getValue() as Date; 
-      return date ? new Date(date).toLocaleDateString(undefined, options) : "N/A"; 
+      const date = getValue() as Date;
+      return date
+        ? new Date(date).toLocaleDateString(undefined, options)
+        : "N/A";
     },
   },
 ];

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
 import Retention from "./retention";
-import { ChevronLeft, ChevronRight, CircleArrowLeft  } from "lucide-react";
+import { ChevronLeft, ChevronRight, CircleArrowLeft } from "lucide-react";
 import Report from "../report/page";
 
 const LIMIT = 10;
@@ -23,7 +23,7 @@ interface PaginationProps {
 
 const Overview = () => {
   interface User {
-    userId:number,
+    userId: number;
     name: string; // User's name
     email: string; // User's email
     role: string; // User's role
@@ -37,8 +37,8 @@ const Overview = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(0);
   const [showReport, setShowReport] = useState<boolean>(false);
-  const [selectedEmployeeId, setSelectedEmployeeId] =useState<number>(0);
-  const [backButton,setBackButton]=useState<Boolean>(false);
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState<number>(0);
+  const [backButton, setBackButton] = useState<Boolean>(false);
 
   const fetchUserData = async (currentPage: number, limit: number) => {
     const response = await axios.get(
@@ -53,12 +53,12 @@ const Overview = () => {
     setSelectedEmployeeId(userId);
     setShowReport(true);
     setBackButton(true);
-  }
+  };
 
-  const handleBackButton= ()=>{
+  const handleBackButton = () => {
     setBackButton(false);
     setShowReport(false);
-  }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -120,96 +120,108 @@ const Overview = () => {
 
   return (
     <div>
-      {backButton &&<Button className="mt-4 mb-4" onClick={handleBackButton}><CircleArrowLeft className="mr-2"/>Back</Button>}
-      {showReport === true ? (<Report empId={selectedEmployeeId} />) : (<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {cardlist.map((item, index) => (
-          <Card key={index} className="h-36">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-base font-medium">
-                {item.title}
-              </CardTitle>
-              <item.icon className={`w-4 h-4 ${item.color}`} />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold mt-8">+ {item.value}</div>
-            </CardContent>
-          </Card>
-        ))}
+      {backButton && (
+        <Button className="mt-4 mb-4" onClick={handleBackButton}>
+          <CircleArrowLeft className="mr-2" />
+          Back
+        </Button>
+      )}
+      {showReport === true ? (
+        <Report empId={selectedEmployeeId} />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {cardlist.map((item, index) => (
+            <Card key={index} className="h-36">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-base font-medium">
+                  {item.title}
+                </CardTitle>
+                <item.icon className={`w-4 h-4 ${item.color}`} />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold mt-8">+ {item.value}</div>
+              </CardContent>
+            </Card>
+          ))}
 
-        <div className="flex flex-row">
-          <Card className="mr-4">
-            <CardHeader style={{ width: "685px" }}>
-              <CardTitle>Employees</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-8">
-                {allUsers.map((user, index) => (
-                  <div key={index} className="flex items-center">
-                    <img
-                      src={`/profile.jpg?height=32&width=32`}
-                      alt={user.name}
-                      className="w-9 h-9 rounded-full mr-2"
+          <div className="flex flex-row">
+            <Card className="mr-4">
+              <CardHeader style={{ width: "685px" }}>
+                <CardTitle>Employees</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-8">
+                  {allUsers.map((user, index) => (
+                    <div key={index} className="flex items-center">
+                      <img
+                        src={`/profile.jpg?height=32&width=32`}
+                        alt={user.name}
+                        className="w-9 h-9 rounded-full mr-2"
                       />
-                    <div className="flex flex-col">
-                      <div className="font-medium">{user.name}</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
-                        {user.email}
+                      <div className="flex flex-col">
+                        <div className="font-medium">{user.name}</div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
+                          {user.email}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {user.designation}
+                        </div>
                       </div>
-                      <div className="text-sm text-gray-500">
-                        {user.designation}
+                      <div className="ml-72">
+                        <Button
+                          className="w-32"
+                          onClick={() => handleClickReport(user.userId)}
+                        >
+                          View Report
+                        </Button>
                       </div>
                     </div>
-                    <div className="ml-72">
-                      <Button className="w-32" onClick={()=>handleClickReport(user.userId)}>
-                        View Report
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPage}
-              onPageChange={setCurrentPage}
-              fetch={fetchUserData}
+                  ))}
+                </div>
+              </CardContent>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPage}
+                onPageChange={setCurrentPage}
+                fetch={fetchUserData}
               />
-          </Card>
+            </Card>
 
-          <div className="flex flex-col">
-            <div className="flex flex-row">
-              <Card style={{ width: "329px", height: "400px" }}>
-                <CardHeader>
-                  <CardTitle>Gender Ratio</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Pie data={pieDataGender} />
-                </CardContent>
-              </Card>
+            <div className="flex flex-col">
+              <div className="flex flex-row">
+                <Card style={{ width: "329px", height: "400px" }}>
+                  <CardHeader>
+                    <CardTitle>Gender Ratio</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Pie data={pieDataGender} />
+                  </CardContent>
+                </Card>
 
-              <Card
-                style={{ width: "329px", height: "400px" }}
-                className="ml-4"
+                <Card
+                  style={{ width: "329px", height: "400px" }}
+                  className="ml-4"
+                >
+                  <CardHeader>
+                    <CardTitle>Designation Distribution</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Pie data={pieDataDesignation} />
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div
+                style={{ width: "670px" }}
+                className="mt-4 bg-white p-12 rounded-sm"
               >
-                <CardHeader>
-                  <CardTitle>Designation Distribution</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Pie data={pieDataDesignation} />
-                </CardContent>
-              </Card>
-            </div>
-
-            <div
-              style={{ width: "670px" }}
-              className="mt-4 bg-white p-12 rounded-sm"
-            >
-              <Retention />
+                <Retention />
+              </div>
             </div>
           </div>
         </div>
-      </div>)}
-      
+      )}
+
       {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {cardlist.map((item, index) => (
           <Card key={index} className="h-36">

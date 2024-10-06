@@ -1,29 +1,35 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const domains = [
-  { value: 'DataScience', label: 'Data Science' },
-  { value: 'DevOps', label: 'DevOps' },
-  { value: 'FullStack', label: 'Full Stack' },
-  { value: 'DataEngineering', label: 'Data Engineering' },
-  { value: 'SoftSkills', label: 'Soft Skills' },
+  { value: "DataScience", label: "DataScience" },
+  { value: "DevOps", label: "DevOps" },
+  { value: "FullStack", label: "FullStack" },
+  { value: "DataEngineering", label: "DataEngineering" },
+  { value: "SoftSkills", label: "SoftSkills" },
 ];
 
 const NewTrainings: React.FC = () => {
-  const [trainingName, setTrainingName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [domainName, setDomainName] = useState<string>('');
-  const [duration, setDuration] = useState<number | ''>(''); // Allow empty string for initial state
-  const [error, setError] = useState<string>('');
+  const [trainingName, setTrainingName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [domainName, setDomainName] = useState<string>("");
+  const [duration, setDuration] = useState<number | "">(""); 
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
-    // Validate duration is a number
-    if (typeof duration !== 'number' || duration <= 0) {
-      setError('Please enter a valid duration.');
+    if (!trainingName || !description || !domainName || !duration) {
+      toast.error("All fields are Mandatory");
+      return;
+    }
+    if (typeof duration !== "number" || duration <= 0) {
+      setError("Please enter a valid duration.");
+      toast.error("Please enter a valid duration.");
       return;
     }
 
@@ -35,26 +41,31 @@ const NewTrainings: React.FC = () => {
     };
 
     try {
-      const response = await axios.post('/api/addTrainings', trainingData);
-      console.log(response.data); 
-     
-      setTrainingName('');
-      setDescription('');
-      setDomainName('');
-      setDuration(''); 
+      const response = await axios.post("/api/addTrainings", trainingData);
+      console.log(response.data);
+
+      setTrainingName("");
+      setDescription("");
+      setDomainName("");
+      setDuration("");
+      toast.success("Training Created , Successfully!");
     } catch (err) {
-      setError('Failed to create training. Please try again.');
-      console.error(err); 
+      setError("Failed to create training. Please try again.");
+      toast.error("Failed to create training. Please try again.");
+      console.error(err);
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-4">
+      <ToastContainer />
       <h2 className="text-2xl font-bold mb-8">Create New Training</h2>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="trainingName" className="block mb-1">Training Name</label>
+          <label htmlFor="trainingName" className="block mb-1">
+            Training Name
+          </label>
           <input
             id="trainingName"
             type="text"
@@ -66,7 +77,9 @@ const NewTrainings: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="description" className="block mb-1">Description</label>
+          <label htmlFor="description" className="block mb-1">
+            Description
+          </label>
           <textarea
             id="description"
             value={description}
@@ -77,7 +90,9 @@ const NewTrainings: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="domainName" className="block mb-1">Domain Name</label>
+          <label htmlFor="domainName" className="block mb-1">
+            Domain Name
+          </label>
           <select
             id="domainName"
             value={domainName}
@@ -86,7 +101,7 @@ const NewTrainings: React.FC = () => {
             className="border border-gray-300 p-2 w-full"
           >
             <option value="">Select Domain</option>
-            {domains.map(domain => (
+            {domains.map((domain) => (
               <option key={domain.value} value={domain.value}>
                 {domain.label}
               </option>
@@ -95,7 +110,9 @@ const NewTrainings: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="duration" className="block mb-1">Duration (in hours)</label>
+          <label htmlFor="duration" className="block mb-1">
+            Duration (in hours)
+          </label>
           <input
             id="duration"
             type="number"

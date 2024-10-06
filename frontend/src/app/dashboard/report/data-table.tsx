@@ -52,12 +52,13 @@ export function DataTable<TData, TValue>({
         <Input
           type="number"
           placeholder="Filter Response Date..."
-          value={(table.getColumn("trainingId")?.getFilterValue() as number )?? ""}
-          onChange={(event) =>{
+          value={
+            (table.getColumn("trainingId")?.getFilterValue() as number) ?? ""
+          }
+          onChange={(event) => {
             console.log(typeof parseInt(event.target.value));
-            table.getColumn("trainingId")?.setFilterValue(event.target.value)
-          }
-          }
+            table.getColumn("trainingId")?.setFilterValue(event.target.value);
+          }}
           className="max-w-sm"
         />
       </div>

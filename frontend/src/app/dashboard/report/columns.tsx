@@ -8,7 +8,7 @@ export type EmployeeDetails = {
   score: number;
   responseDate: string;
 };
-const options:any = { year: 'numeric', month: 'long', day: 'numeric' };
+const options: any = { year: "numeric", month: "long", day: "numeric" };
 
 export const columns: ColumnDef<EmployeeDetails>[] = [
   {
@@ -27,8 +27,10 @@ export const columns: ColumnDef<EmployeeDetails>[] = [
     accessorKey: "responseDate",
     header: "Response Date",
     cell: ({ getValue }) => {
-      const date = getValue() as Date; 
-      return date ? new Date(date).toLocaleDateString(undefined, options) : "N/A"; 
+      const date = getValue() as Date;
+      return date
+        ? new Date(date).toLocaleDateString(undefined, options)
+        : "N/A";
     },
   },
 ];

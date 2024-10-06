@@ -23,7 +23,9 @@ const Dashboard = () => {
   const role = user.role;
 
   // State to hold the currently selected component
-  const [currentComponent, setCurrentComponent] = useState<JSX.Element | null>(null);
+  const [currentComponent, setCurrentComponent] = useState<JSX.Element | null>(
+    null
+  );
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -47,12 +49,14 @@ const Dashboard = () => {
     <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
       <aside className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
         <div className="p-4">
-          <h2 className="text-2xl font-semibold text-slate-800 dark:text-white">SkillBoost!</h2>
+          <h2 className="text-2xl font-semibold text-slate-800 dark:text-white">
+            SkillBoost!
+          </h2>
         </div>
         <nav className="mt-4">
           {menulist
-            .filter(item => item.listFor === role) // Filter menu items by role
-            .map(item => (
+            .filter((item) => item.listFor === role) // Filter menu items by role
+            .map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleMenuClick(item.component)}
@@ -67,7 +71,9 @@ const Dashboard = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center">
-            <h1 className="font-bold text-xl">Welcome Back, {user.name || "User"}!</h1>
+            <h1 className="font-bold text-xl">
+              Welcome Back, {user.name || "User"}!
+            </h1>
           </div>
           <div className="flex items-center">
             <Input className="w-96 mr-4" placeholder="Search..." />
@@ -88,10 +94,17 @@ const Dashboard = () => {
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>{user.name || "User"}</DropdownMenuItem>
-                <DropdownMenuItem>{user.designation || "Designation"}</DropdownMenuItem>
-                <DropdownMenuItem>{user.email || "example@gmail.com"}</DropdownMenuItem>
+                <DropdownMenuItem>
+                  {user.designation || "Designation"}
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  {user.email || "example@gmail.com"}
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout} className="mt-2 font-bold">
+                <DropdownMenuItem
+                  onClick={handleLogout}
+                  className="mt-2 font-bold"
+                >
                   <LogOut className="mr-4" /> Log Out
                 </DropdownMenuItem>
               </DropdownMenuContent>

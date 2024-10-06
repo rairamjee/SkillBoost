@@ -14,7 +14,15 @@ import {
   Legend,
 } from "chart.js";
 
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Title, Tooltip, Legend);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  Title,
+  Tooltip,
+  Legend
+);
 
 function Retention() {
   interface Retention {
@@ -45,7 +53,8 @@ function Retention() {
 
   // Process data for the line chart
   const processRetentionData = (data: Retention[]) => {
-    const retentionRates: Record<number, { retained: number; total: number }> = {};
+    const retentionRates: Record<number, { retained: number; total: number }> =
+      {};
 
     data.forEach(({ trainingId, isRetained }) => {
       if (!retentionRates[trainingId]) {
