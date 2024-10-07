@@ -37,7 +37,7 @@ function Report(empId: any) {
     userId: number;
     trainingId: number;
     score: number;
-    responseDate: string; // Use string for ISO date format
+    responseDate: string; 
   }
 
   interface Employee {

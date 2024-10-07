@@ -51,12 +51,12 @@ const AddEmployee: React.FC = () => {
       return;
     }
 
-    if (password.length <= 6) {
+    if (password.length < 6) {
       toast.error("Password must be atleast 6 characters");
       return;
     }
 
-    if (password.length >= 6) {
+    if (password.length > 10) {
       toast.error("Password cannot be greater than 10 characters");
       return;
     }

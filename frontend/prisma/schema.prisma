@@ -52,7 +52,7 @@ model Response {
   userId       Int
   trainingId   Int
   score        Int
-  responseDate DateTime
+  responseDate DateTime 
   user         User     @relation(fields: [userId], references: [userId])
   Training     Training @relation(fields: [trainingId], references: [trainingId])
 }
