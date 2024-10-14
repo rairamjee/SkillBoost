@@ -146,7 +146,7 @@ const Overview = () => {
 
           <div className="flex flex-row">
             <Card className="mr-4">
-              <CardHeader style={{ width: "685px" }}>
+              <CardHeader style={{ width: "795px" }}>
                 <CardTitle>Employees</CardTitle>
               </CardHeader>
               <CardContent>
@@ -167,7 +167,7 @@ const Overview = () => {
                           {user.designation}
                         </div>
                       </div>
-                      <div className="ml-72">
+                      <div className="ml-96">
                         <Button
                           className="w-32"
                           onClick={() => handleClickReport(user.userId)}
@@ -189,7 +189,7 @@ const Overview = () => {
 
             <div className="flex flex-col">
               <div className="flex flex-row">
-                <Card style={{ width: "329px", height: "400px" }}>
+                <Card style={{ width: "390px", height: "450px" }}>
                   <CardHeader>
                     <CardTitle>Gender Ratio</CardTitle>
                   </CardHeader>
@@ -199,7 +199,7 @@ const Overview = () => {
                 </Card>
 
                 <Card
-                  style={{ width: "329px", height: "400px" }}
+                  style={{ width: "390px", height: "450px" }}
                   className="ml-4"
                 >
                   <CardHeader>
@@ -212,7 +212,7 @@ const Overview = () => {
               </div>
 
               <div
-                style={{ width: "670px" }}
+                style={{ width: "790px" }}
                 className="mt-4 bg-white p-12 rounded-sm"
               >
                 <Retention />
