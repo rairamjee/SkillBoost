@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    console.log("Logging out...");
+    // console.log("Logging out...");
     window.location.href = "/login"; // Replace with your login route
   };
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    console.log(role);
+    // console.log(role);
     if (role === "Employee") {
       setCurrentComponent(<UserDashboard />);
     } else {

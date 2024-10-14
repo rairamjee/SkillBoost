@@ -28,7 +28,7 @@ const Login = () => {
         password: userPassword,
       });
 
-      console.log(data);
+      // console.log(data);
 
       localStorage.setItem("user", JSON.stringify(data.data));
       toast.success("Login successful! Redirecting to dashboard...");

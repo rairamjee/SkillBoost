@@ -10,7 +10,7 @@ function EmployeeAnalytics() {
     const fetchData = async () => {
       try {
         const response = await axios.get("/api/employee");
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setEmployees(response.data.data);
       } catch (error) {
         console.log("Error :", error);

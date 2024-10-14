@@ -6,7 +6,7 @@ export async function GET(
 ) {
   const userId = parseInt(params.id);
 
-  console.log(userId);
+  // console.log(userId);
 
   try {
     // Fetch both user details and responses in one query

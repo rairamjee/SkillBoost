@@ -29,7 +29,7 @@ function TrainingAttended() {
     const fetchTrainingDetail = async () => {
       try {
         const response = await axios.get(`/api/trainingAttended/${userId}`);
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setTrainingParticipatedDetails(response.data.data);
         setLoading(false);
       } catch (error) {
