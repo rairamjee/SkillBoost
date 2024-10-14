@@ -1,25 +1,61 @@
 # SkillBoost
 
-SkillBoost is an innovative project designed to enhance your skills in key areas of software development, data science, and data engineering. This project offers a hands-on approach to learning by allowing you to engage with real-world applications across multiple domains.
+SkillBoost is a performance tracking project designed for both admins and employees. This full-stack application provides insights into performance metrics, facilitating better management and growth.
 
-## Key Areas of Focus
+## Table of Contents
 
-### Frontend Development
-- Build interactive user interfaces using **NEXT**.
-- The supporting tech stack includes **PostgreSQL**.
-- Create responsive designs with **Tailwind CSS**.
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Key Features](#key-features)
+- [Data Generation](#data-generation)
+- [Data Engineering](#data-engineering)
+- [Data Science](#data-science)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Data Generation
-- Use **Python** and the **Faker** library to generate synthetic datasets.
-- Understand the importance of data in testing and development.
-- Explore different types of data that can be generated for various use cases.
+## Overview
 
-### Data Science
-- Conduct exploratory data analysis (EDA) using Python libraries like **Pandas**.
-- Develop and evaluate machine learning models using **Scikit-learn**.
-- Create **Jupyter Notebooks** to document your analysis and findings.
+SkillBoost serves as a comprehensive performance tracker, enabling admins to monitor and analyze employee performance effectively. The application is built with modern technologies to ensure a seamless user experience and robust functionality.
 
-### Data Engineering
-- Design and implement data pipelines using **Apache Airflow**.
-- Learn about **ETL** (Extract, Transform, Load) processes.
-- Understand how to manage and store data effectively for analysis.
+## Technologies Used
+
+- **Frontend**:
+  - Next.js
+  - Tailwind CSS
+  - Shadcn UI Library
+
+- **Backend**:
+  - Prisma ORM
+  - PostgreSQL (Database)
+  - TypeScript
+
+- **Data Generation**:
+  - JavaScript
+  - Faker Library
+
+- **Data Engineering**:
+  - Python
+  - ELT Process (4 Layers: Raw, Prep, Transform, Reporting)
+
+- **Data Science**:
+  - Python
+  - Scikit-learn
+
+## Getting Started
+
+To get started with the SkillBoost project, follow the instructions below.
+
+### Prerequisites
+
+- Node.js
+- PostgreSQL
+- Python 3.x
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/skillboost.git
+   cd skillboost
