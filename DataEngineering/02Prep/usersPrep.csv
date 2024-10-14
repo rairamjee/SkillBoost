@@ -1,0 +1,301 @@
+userId,userName,role,designation,joinDate
+1,Brian Davis,Employee,Designation 5,2024-03-29
+2,Marsha Wilderman,Employee,Designation 9,2024-06-13
+3,Noah Bogisich-Hauck,Employee,Designation 5,2024-10-09
+4,Bryant Parker,Employee,Designation 5,2024-02-08
+5,Cecilia Lehner,Employee,Designation 6,2024-01-18
+6,Dewey King,Employee,Designation 8,2024-08-08
+7,Ms. Judy MacGyver,Employee,Designation 4,2024-04-14
+8,Henrietta Bins-Oberbrunner,Employee,Designation 6,2024-06-26
+9,Jean Goldner,Employee,Designation 6,2024-03-12
+10,Cathy Okuneva,Employee,Designation 3,2024-01-04
+11,Dennis Hudson,Employee,Designation 10,2024-02-15
+12,Anita Mohr,Employee,Designation 5,2024-03-30
+13,Jasmine Hyatt,Employee,Designation 2,2024-07-24
+14,Andres Lind Jr.,Employee,Designation 6,2023-11-17
+15,Owen Hauck,Employee,Designation 6,2024-01-01
+16,Marcus Lueilwitz,Employee,Designation 9,2024-09-08
+17,Miranda Kilback,Employee,Designation 3,2024-07-11
+18,Rodolfo Cruickshank III,Employee,Designation 4,2024-07-29
+19,Mike Hand,Employee,Designation 6,2023-12-22
+20,Wallace Leannon,Employee,Designation 3,2024-10-01
+21,Irma Lakin,Employee,Designation 2,2024-02-19
+22,Lindsey O'Conner,Employee,Designation 6,2024-03-07
+23,Dennis Price,Employee,Designation 6,2024-09-04
+24,Tasha Pollich,Employee,Designation 6,2024-09-03
+25,Luke Crist,Employee,Designation 5,2024-01-02
+26,Roberto Towne,Employee,Designation 8,2024-07-24
+27,Penny Zemlak III,Employee,Designation 1,2024-01-09
+28,Ollie Wyman,Employee,Designation 7,2024-03-26
+29,Kent Bogisich,Employee,Designation 3,2023-11-29
+30,Cesar Medhurst,Employee,Designation 2,2023-11-12
+31,Ms. Shawna McGlynn,Employee,Designation 2,2023-11-01
+32,Sherri Pouros,Employee,Designation 6,2024-04-04
+33,Donna Baumbach,Employee,Designation 10,2024-07-18
+34,Adam Schamberger,Employee,Designation 3,2024-09-14
+35,Connie Moen,Employee,Designation 8,2023-12-01
+36,Orville Corkery,Employee,Designation 7,2024-05-11
+37,Miss Ann Bauch,Employee,Designation 5,2024-08-11
+38,Armando Mosciski,Employee,Designation 8,2024-04-23
+39,Gloria Medhurst,Employee,Designation 5,2023-11-01
+40,Ora Christiansen,Employee,Designation 4,2024-06-29
+41,Kayla King,Employee,Designation 3,2024-09-13
+42,Carla Goldner,Employee,Designation 5,2024-03-24
+43,Grant Dickinson,Employee,Designation 7,2024-01-03
+44,Rene Hamill,Employee,Designation 7,2024-04-11
+45,Caleb Dietrich-Pollich,Employee,Designation 9,2023-12-20
+46,Ms. Darlene Schmitt,Employee,Designation 3,2023-12-07
+47,Alexis Smith DDS,Employee,Designation 2,2023-11-20
+48,Jody Homenick,Admin,Designation 7,2024-02-25
+49,Janie Legros-Mraz,Employee,Designation 7,2024-09-28
+50,Dr. Adrian Greenholt,Employee,Designation 5,2024-07-01
+51,Tabitha Doyle,Employee,Designation 5,2024-03-29
+52,Leah Powlowski,Employee,Designation 4,2024-08-01
+53,Mr. Maurice Hirthe I,Employee,Designation 9,2024-03-04
+54,Vivian Becker,Employee,Designation 8,2024-02-09
+55,Felix Mann,Employee,Designation 10,2024-03-07
+56,Kent Hettinger,Employee,Designation 3,2024-06-02
+57,Amber Casper,Employee,Designation 6,2023-11-20
+58,Dr. Robin Ernser,Employee,Designation 10,2024-03-31
+59,Miss Teresa Wisozk,Employee,Designation 2,2024-07-10
+60,Ms. Ruth Mohr,Employee,Designation 10,2024-02-19
+61,Karl Larson,Employee,Designation 6,2024-09-23
+62,Sherman Cremin,Employee,Designation 5,2023-11-18
+63,Tammy Kirlin,Employee,Designation 3,2024-02-26
+64,Horace Mante,Employee,Designation 10,2023-11-16
+65,Kay Fadel,Employee,Designation 8,2024-08-29
+66,Brenda Bechtelar,Employee,Designation 4,2024-10-04
+67,Jenna Luettgen,Employee,Designation 10,2024-08-19
+68,Phil Sipes,Employee,Designation 3,2024-08-21
+69,Mario Hoeger,Employee,Designation 7,2024-04-16
+70,Charlotte O'Hara,Employee,Designation 1,2024-09-04
+71,Vera Murray,Employee,Designation 8,2024-01-02
+72,Jesse Koch,Employee,Designation 7,2023-12-27
+73,Claude Lebsack,Employee,Designation 4,2024-05-23
+74,Billie Ebert,Employee,Designation 3,2024-02-03
+75,Mr. Elias Koepp,Employee,Designation 7,2024-07-25
+76,Cynthia Stokes,Employee,Designation 6,2024-06-03
+77,Nettie Mayert,Employee,Designation 7,2024-01-15
+78,Stacy Mohr,Employee,Designation 4,2024-05-25
+79,Ruben Hamill,Employee,Designation 6,2024-04-04
+80,Lucas Predovic,Employee,Designation 7,2024-06-12
+81,Luther Barton,Employee,Designation 3,2024-04-19
+82,Angelina Walsh,Employee,Designation 2,2024-03-18
+83,Nicolas Block,Employee,Designation 1,2024-03-11
+84,Jeff Green,Employee,Designation 1,2024-06-13
+85,Estelle Price,Employee,Designation 8,2024-07-01
+86,Alice Bogisich,Employee,Designation 3,2024-08-08
+87,Josh Fritsch,Employee,Designation 10,2024-01-05
+88,Kenneth Grimes,Employee,Designation 5,2024-05-22
+89,Henrietta Wehner,Employee,Designation 10,2024-05-18
+90,Brad Gottlieb,Employee,Designation 10,2024-05-15
+91,Leigh Feeney,Employee,Designation 9,2024-04-29
+92,Marilyn Feil,Employee,Designation 3,2024-08-26
+93,Margarita Koch,Employee,Designation 10,2024-04-16
+94,Sherry Balistreri,Employee,Designation 5,2024-02-24
+95,Jason Friesen II,Employee,Designation 5,2023-12-02
+96,Crystal Daniel,Employee,Designation 4,2024-06-05
+97,Pedro Mertz,Employee,Designation 2,2024-01-25
+98,Gabriel Jones,Employee,Designation 4,2024-07-29
+99,Wade Koch III,Employee,Designation 1,2024-08-25
+100,Rafael Lind Sr.,Employee,Designation 6,2024-02-19
+101,Israel Barrows,Employee,Designation 7,2024-06-05
+102,Leslie Harvey Sr.,Employee,Designation 9,2024-04-10
+103,Clayton Zemlak DVM,Employee,Designation 5,2024-04-11
+104,Pauline Little,Employee,Designation 4,2024-08-15
+105,Rose Zboncak,Employee,Designation 7,2024-07-26
+106,Phil Sporer,Employee,Designation 7,2023-10-15
+107,Dawn Little,Employee,Designation 9,2024-03-19
+108,Dr. Andrew Buckridge,Employee,Designation 9,2024-10-02
+109,Eleanor Heathcote,Employee,Designation 10,2023-12-14
+110,Oliver Sawayn III,Employee,Designation 5,2024-06-19
+111,Dr. Archie Bogisich DVM,Employee,Designation 5,2023-11-27
+112,Mrs. Lydia Grady,Employee,Designation 1,2024-04-11
+113,Sally Bogisich,Employee,Designation 6,2024-03-19
+114,Michele Fadel,Employee,Designation 7,2024-10-05
+115,Veronica Zboncak,Employee,Designation 3,2024-06-03
+116,Joel Muller,Employee,Designation 6,2024-05-15
+117,Lindsay Mayert,Employee,Designation 3,2024-09-21
+118,Dr. Gustavo Emmerich,Employee,Designation 5,2023-11-26
+119,Gerardo Brown,Employee,Designation 3,2024-10-02
+120,Dr. Angelica Mante Sr.,Employee,Designation 7,2024-05-29
+121,Dixie Funk,Employee,Designation 4,2024-07-16
+122,Roger Schinner,Employee,Designation 10,2023-11-30
+123,Darryl Grant,Employee,Designation 6,2024-02-12
+124,Mamie Ortiz,Employee,Designation 6,2024-07-26
+125,Robyn Auer,Employee,Designation 6,2024-09-06
+126,Elizabeth Ondricka,Employee,Designation 10,2024-03-12
+127,Anne Moore,Employee,Designation 6,2024-04-28
+128,Eleanor Stracke,Employee,Designation 10,2024-07-06
+129,Howard Durgan,Employee,Designation 4,2024-01-29
+130,Andy Leannon,Employee,Designation 4,2023-11-13
+131,Pearl Schaden,Employee,Designation 8,2024-07-01
+132,Cedric Zieme,Employee,Designation 5,2024-08-12
+133,Miss Nina Little,Employee,Designation 2,2024-02-04
+134,Alfred Kunde,Employee,Designation 1,2024-07-09
+135,Juana Schuster,Employee,Designation 3,2023-11-12
+136,Tyrone Gorczany,Employee,Designation 8,2024-03-04
+137,Lamar Littel,Employee,Designation 7,2023-11-09
+138,Dominic Wunsch,Employee,Designation 6,2023-12-26
+139,Ms. Melanie Dicki,Employee,Designation 5,2024-06-09
+140,Kelli Raynor V,Employee,Designation 1,2024-02-05
+141,Blake Hamill-Gulgowski Sr.,Employee,Designation 7,2024-02-01
+142,Jack Gleichner,Employee,Designation 6,2024-02-05
+143,Curtis Mann,Employee,Designation 8,2024-05-10
+144,Dr. Roy Prosacco,Admin,Designation 7,2023-10-11
+145,Chelsea Quigley,Employee,Designation 10,2024-09-04
+146,Dr. Santiago Konopelski,Employee,Designation 9,2024-02-01
+147,Doyle Bernhard,Employee,Designation 2,2024-02-23
+148,Anita Runolfsson,Employee,Designation 2,2024-05-02
+149,Patsy Sipes,Employee,Designation 7,2024-05-13
+150,Marie Bergstrom,Employee,Designation 10,2023-11-04
+151,Kay Hoppe,Employee,Designation 2,2023-11-26
+152,Jackie Hoeger,Employee,Designation 7,2024-09-22
+153,Miss Alice Pfeffer,Employee,Designation 4,2024-03-26
+154,Edmund Wyman,Employee,Designation 6,2024-02-09
+155,Hope Adams,Employee,Designation 7,2023-11-09
+156,Lynn Kuvalis,Employee,Designation 5,2024-06-08
+157,Mr. Ronnie Schneider,Employee,Designation 6,2024-03-27
+158,Leona Ullrich,Employee,Designation 7,2024-01-25
+159,Cecelia Becker II,Employee,Designation 10,2024-09-04
+160,Gail Baumbach,Employee,Designation 7,2024-01-02
+161,Ramon Grady,Employee,Designation 5,2024-02-04
+162,Rene Lockman I,Employee,Designation 6,2024-05-29
+163,Marshall Morar,Employee,Designation 7,2023-11-21
+164,Jerald Goyette DVM,Employee,Designation 8,2023-11-27
+165,Laura O'Hara,Employee,Designation 9,2024-06-21
+166,Mercedes Huel-Maggio,Employee,Designation 6,2024-06-19
+167,Linda Pouros,Employee,Designation 8,2024-07-11
+168,Dominic Block,Employee,Designation 1,2023-12-24
+169,Bill Stehr,Employee,Designation 8,2024-07-23
+170,Gilbert Donnelly,Employee,Designation 7,2024-04-05
+171,Craig O'Conner,Employee,Designation 2,2024-01-24
+172,Agnes Johnson,Employee,Designation 4,2023-11-07
+173,Bennie Friesen,Employee,Designation 9,2024-08-04
+174,Josefina Nicolas,Employee,Designation 6,2024-10-04
+175,Lola Bednar,Employee,Designation 3,2024-08-12
+176,Dave Wilderman,Employee,Designation 10,2024-03-20
+177,Billie Wolf,Employee,Designation 5,2024-02-07
+178,George Pfannerstill,Employee,Designation 9,2024-01-14
+179,Domingo Roberts,Employee,Designation 6,2024-05-02
+180,Cary Waters,Employee,Designation 3,2024-04-03
+181,Brian Steuber,Employee,Designation 4,2024-09-13
+182,Mrs. Danielle Zulauf III,Employee,Designation 9,2024-04-18
+183,Claude Bahringer,Employee,Designation 8,2024-09-18
+184,Hope Brakus,Employee,Designation 5,2024-03-31
+185,Irving Kling,Employee,Designation 3,2024-08-13
+186,Kellie Pacocha,Employee,Designation 3,2023-12-01
+187,Sarah Douglas-O'Keefe,Employee,Designation 10,2024-01-17
+188,Kathleen Corwin-Konopelski,Employee,Designation 9,2024-04-18
+189,Robin Schuster,Employee,Designation 7,2024-07-23
+190,Katie Durgan,Employee,Designation 9,2024-04-19
+191,Hugo Hilpert,Employee,Designation 10,2024-02-27
+192,Ginger Schmitt Sr.,Employee,Designation 5,2024-04-02
+193,Steven Bogan,Employee,Designation 4,2024-04-27
+194,Mrs. Charlene Ritchie,Employee,Designation 10,2024-03-29
+195,Mrs. Diane Lakin,Employee,Designation 5,2023-12-16
+196,Dr. Phil Ruecker,Employee,Designation 6,2024-08-19
+197,Randy Nolan,Employee,Designation 5,2024-07-17
+198,Rufus Turner,Employee,Designation 6,2024-03-19
+199,Meredith Feil DVM,Employee,Designation 2,2024-06-27
+200,Teri Kling,Employee,Designation 9,2024-08-03
+201,Angel Leannon II,Employee,Designation 4,2024-03-07
+202,Arlene Schultz,Employee,Designation 2,2024-06-27
+203,Timothy Blanda,Employee,Designation 3,2024-01-08
+204,Owen Pfannerstill II,Employee,Designation 1,2024-06-30
+205,Carlton Luettgen,Employee,Designation 5,2023-11-30
+206,Scott Rutherford,Employee,Designation 10,2023-12-20
+207,Miss Jo Heaney,Employee,Designation 6,2024-07-24
+208,Nathan Heidenreich,Employee,Designation 2,2024-09-16
+209,Rolando Ryan,Employee,Designation 10,2024-06-13
+210,Guadalupe Willms,Employee,Designation 2,2024-06-05
+211,Lewis Bergnaum,Employee,Designation 3,2024-04-11
+212,Gregory Prosacco,Employee,Designation 3,2024-08-02
+213,Miss Jackie Anderson,Employee,Designation 9,2024-07-26
+214,Marcia Hand,Employee,Designation 2,2024-02-20
+215,Robin Walsh I,Employee,Designation 8,2024-07-08
+216,Dan Lowe,Employee,Designation 10,2024-04-14
+217,Alicia Bayer,Employee,Designation 8,2024-02-13
+218,Jenny Towne,Employee,Designation 7,2024-01-12
+219,Dr. Traci Labadie,Employee,Designation 7,2024-04-15
+220,Kim Doyle,Employee,Designation 7,2024-07-06
+221,Byron Goodwin,Employee,Designation 1,2024-04-21
+222,Mathew Hilll,Employee,Designation 9,2024-01-01
+223,Norma Kulas,Employee,Designation 1,2023-12-11
+224,Laverne VonRueden MD,Employee,Designation 3,2023-12-06
+225,Ernest Hegmann,Employee,Designation 10,2024-02-13
+226,Clara Conroy,Employee,Designation 1,2024-05-06
+227,Sherry Heller,Employee,Designation 5,2024-05-18
+228,Glen Franecki,Employee,Designation 2,2024-05-23
+229,Dr. Hector Johns,Employee,Designation 3,2024-01-03
+230,Mrs. Virginia Crist PhD,Employee,Designation 5,2024-06-17
+231,Van Schmidt I,Employee,Designation 3,2024-08-27
+232,Fred Ferry Sr.,Employee,Designation 6,2024-08-05
+233,Dorothy Conn DDS,Employee,Designation 1,2024-08-24
+234,Mae Kuhic,Admin,Designation 4,2023-10-12
+235,Miriam Christiansen,Employee,Designation 10,2024-02-01
+236,Jeanne Lueilwitz,Employee,Designation 4,2024-08-03
+237,Hubert Stanton,Employee,Designation 10,2023-12-31
+238,Greg Gerhold,Employee,Designation 8,2023-10-24
+239,Miriam Prosacco,Employee,Designation 9,2023-10-30
+240,Shawn Kerluke,Employee,Designation 8,2024-03-16
+241,Rick Stracke,Employee,Designation 2,2024-09-12
+242,Enrique Wunsch,Employee,Designation 9,2024-08-23
+243,Allen Stehr III,Employee,Designation 8,2024-03-10
+244,Alexander Aufderhar,Employee,Designation 8,2024-01-26
+245,Ashley Yost,Employee,Designation 8,2024-06-22
+246,Kayla Marquardt,Employee,Designation 6,2023-11-11
+247,Freddie Runte,Employee,Designation 9,2024-03-02
+248,Mrs. Jennie Ferry,Employee,Designation 6,2024-06-28
+249,Mark Gleichner,Employee,Designation 5,2023-11-25
+250,Dr. Wm Kozey,Employee,Designation 7,2024-09-20
+251,Johnnie Powlowski,Employee,Designation 9,2024-08-03
+252,Floyd Funk,Employee,Designation 8,2024-04-27
+253,Doreen Brakus,Employee,Designation 3,2024-03-04
+254,Nick Lubowitz,Employee,Designation 4,2024-01-18
+255,Manuel Parisian,Employee,Designation 4,2024-04-18
+256,Mrs. Tracey Kling,Employee,Designation 1,2023-12-25
+257,Shaun Yundt-Gibson Sr.,Employee,Designation 9,2024-02-15
+258,Lucia White,Employee,Designation 8,2024-07-04
+259,Bertha Bartell,Employee,Designation 7,2024-04-08
+260,Kathleen Collier-Keebler,Employee,Designation 8,2024-03-19
+261,Wm MacGyver,Employee,Designation 10,2024-02-01
+262,Darin Kuhn,Employee,Designation 7,2024-05-29
+263,Kristine Dicki,Employee,Designation 8,2024-01-09
+264,Evan Schulist,Employee,Designation 9,2023-10-14
+265,Mrs. Tanya Becker,Employee,Designation 4,2023-12-21
+266,Jeremiah Kohler,Employee,Designation 8,2023-11-22
+267,Marian Marks,Employee,Designation 6,2024-06-01
+268,Paulette Kilback Sr.,Employee,Designation 4,2024-08-20
+269,Steve Smith,Employee,Designation 1,2024-05-09
+270,Christina Jast,Employee,Designation 1,2024-08-25
+271,Lindsey Huel Sr.,Employee,Designation 7,2024-07-17
+272,Tommie Armstrong IV,Employee,Designation 4,2024-08-21
+273,Woodrow Dach,Employee,Designation 3,2024-08-27
+274,Mr. Jordan Ward,Employee,Designation 5,2024-08-19
+275,Casey Romaguera Sr.,Employee,Designation 7,2024-03-14
+276,Rodolfo Medhurst,Employee,Designation 1,2024-04-10
+277,Estelle Howell,Employee,Designation 5,2024-01-29
+278,Mr. Jessie Abernathy,Employee,Designation 1,2024-09-10
+279,Jamie Jerde,Employee,Designation 2,2024-08-13
+280,Grady Hermiston,Employee,Designation 4,2023-11-25
+281,Herman Crist,Employee,Designation 1,2024-05-04
+282,Chad Larson,Admin,Designation 4,2024-06-29
+283,Joel Wilkinson,Employee,Designation 4,2024-08-03
+284,Carrie Blanda,Employee,Designation 3,2023-10-19
+285,Sammy Lakin,Employee,Designation 4,2024-01-09
+286,Oscar Ruecker-Klein,Employee,Designation 10,2023-10-26
+287,Matt Nolan,Employee,Designation 2,2024-09-20
+288,Javier Gutkowski,Employee,Designation 5,2024-09-04
+289,Tracy Ankunding V,Employee,Designation 7,2023-11-22
+290,Pam Watsica,Employee,Designation 4,2024-03-13
+291,Ivan Emard,Employee,Designation 5,2024-07-12
+292,Martha Batz V,Employee,Designation 4,2024-01-07
+293,Marcus Kemmer III,Employee,Designation 2,2024-04-03
+294,Al Upton,Employee,Designation 6,2024-04-22
+295,Angelica Lakin,Employee,Designation 9,2024-02-01
+296,Scott McKenzie IV,Employee,Designation 7,2024-05-10
+297,Desiree Swift IV,Employee,Designation 2,2024-04-08
+298,Hugh Kulas,Employee,Designation 6,2024-09-03
+299,Fernando Morissette,Employee,Designation 8,2024-05-11
+300,Timmy Casper,Employee,Designation 9,2023-11-23
